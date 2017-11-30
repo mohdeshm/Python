@@ -47,7 +47,7 @@ class admin:
                 batchCourseName = raw_input("enter the batch Course Name")
                 batchFacultyName = raw_input("enter the batch Faculty Name")
                 self.studentScheduler.showAllStudents()
-                numStudents=input("Enter the number of students you want to add from above list")
+                numStudents=input("Enter the number of students you want to add from the above list")
                 batchStudents={}
                 for num in range(0,numStudents):
                     rollNo=input("Enter the roll number")

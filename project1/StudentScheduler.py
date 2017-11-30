@@ -72,11 +72,12 @@ class studentScheduler:
         return self.Batch
 
     def getBatchDetailsByRollNo(self,rollNo):
-        for batchId in self.Batches.keys():
+        keys=self.Batches.keys()
+        for batchId in keys:
                 if rollNo in self.Batches[batchId].batchStudents.keys():
-                    print self.Batch.batchId
-                    print self.Batch.batchCourseName
-                    print self.Batch.batchFacultyName
-                    print self.Batch.batchStudents
+                    print self.Batches[batchId].batchId
+                    print self.Batches[batchId].batchCourseName
+                    print self.Batches[batchId].batchFacultyName
+                    print self.Batches[batchId].batchStudents
                     break
 
