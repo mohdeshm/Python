@@ -1,4 +1,5 @@
 from Account import Account
+from InsufficientBalanceException import  InsufficientBalanceException
 class AccountScheduler:
     def __init__(self):
         self.account = ""
@@ -10,7 +11,7 @@ class AccountScheduler:
         self.account.setCustName(custName)
         self.account.setBalance(balance)
         self.accounts.update({accountNo:self.account})
-        print "Account has been successfully created for account number"+accountNo
+        print "Account has been successfully created for account number",accountNo
 
     def getAccount(self,accountNo):
         self.account=self.accounts[accountNo]
@@ -24,15 +25,15 @@ class AccountScheduler:
         return self.account
 
     def withDrawAmount(self,amount,accountNo):
-        try:
-            self.account = self.accounts[accountNo]
-            self.account.setBalance(self.account.getBalance()-amount)
-            if :
-                raise I
-            print("Account balance has been successfully updated to",self.account.getBalance(),
-            "for account number",accountNo)
-            return self.account
-        except
+
+        self.account = self.accounts[accountNo]
+        if (amount > self.account.getBalance()):
+            raise InsufficientBalanceException
+        self.account.setBalance(self.account.getBalance()-amount)
+        print("Account balance has been successfully updated to",self.account.getBalance(),
+        "for account number",accountNo)
+        return self.account
+
 
     def fundTransfer(self,fromAccountNo,toAccountNo,amount):
         fromAccount=self.withDrawAmount(amount,fromAccountNo)
